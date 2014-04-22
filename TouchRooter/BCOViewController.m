@@ -1,29 +1,70 @@
 //
 //  BCOViewController.m
-//  TouchRooter
+//  BCOTouchRooter
 //
 //  Created by 阿部耕平 on 2014/04/22.
 //  Copyright (c) 2014年 Kohei Abe. All rights reserved.
 //
 
 #import "BCOViewController.h"
+#import "BCOTouchRooter.h"
 
-@interface BCOViewController ()
+@interface BCOViewController () <BCOTouchReceiver>
 
 @end
 
 @implementation BCOViewController
 
-- (void)viewDidLoad
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        BCOTouchRooter *rooter = [BCOTouchRooter sharedRooter];
+        [rooter addReceiver:self];
+    }
+    return self;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"began");
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"moved");
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"ended");
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"cancelled");
+}
+
+#pragma mark - BCOTouchReceiver
+
+- (void)didReceiveTouchesBegan:(NSSet *)touches event:(UIEvent *)event
+{
+    NSLog(@"began rooter");
+}
+
+- (void)didReceiveTouchesMoved:(NSSet *)touches event:(UIEvent *)event
+{
+    NSLog(@"moved rooter");
+}
+
+- (void)didReceiveTouchesEnded:(NSSet *)touches event:(UIEvent *)event
+{
+    NSLog(@"ended rooter");
+}
+
+- (void)didReceiveTouchesCancelled:(NSSet *)touches event:(UIEvent *)event
+{
+    NSLog(@"cancelled rooter");
 }
 
 @end

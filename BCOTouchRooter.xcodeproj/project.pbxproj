@@ -21,6 +21,7 @@
 		8E7E891C1906A7A400528F7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7E88FE1906A7A400528F7F /* UIKit.framework */; };
 		8E7E89241906A7A400528F7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E7E89221906A7A400528F7F /* InfoPlist.strings */; };
 		8E7E89261906A7A400528F7F /* TouchRooterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E89251906A7A400528F7F /* TouchRooterTests.m */; };
+		8E7E89371906B63100528F7F /* BCOTouchRooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E89361906B63100528F7F /* BCOTouchRooter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,25 +35,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8E7E88F71906A7A400528F7F /* TouchRooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchRooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E7E88F71906A7A400528F7F /* BCOTouchRooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCOTouchRooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7E88FA1906A7A400528F7F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8E7E88FC1906A7A400528F7F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8E7E88FE1906A7A400528F7F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		8E7E89021906A7A400528F7F /* TouchRooter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchRooter-Info.plist"; sourceTree = "<group>"; };
+		8E7E89021906A7A400528F7F /* BCOTouchRooter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BCOTouchRooter-Info.plist"; sourceTree = "<group>"; };
 		8E7E89041906A7A400528F7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E7E89061906A7A400528F7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8E7E89081906A7A400528F7F /* TouchRooter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchRooter-Prefix.pch"; sourceTree = "<group>"; };
+		8E7E89081906A7A400528F7F /* BCOTouchRooter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BCOTouchRooter-Prefix.pch"; sourceTree = "<group>"; };
 		8E7E89091906A7A400528F7F /* BCOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCOAppDelegate.h; sourceTree = "<group>"; };
 		8E7E890A1906A7A400528F7F /* BCOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCOAppDelegate.m; sourceTree = "<group>"; };
 		8E7E890D1906A7A400528F7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E7E890F1906A7A400528F7F /* BCOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCOViewController.h; sourceTree = "<group>"; };
 		8E7E89101906A7A400528F7F /* BCOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCOViewController.m; sourceTree = "<group>"; };
 		8E7E89121906A7A400528F7F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8E7E89181906A7A400528F7F /* TouchRooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchRooterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E7E89181906A7A400528F7F /* BCOTouchRooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BCOTouchRooterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7E89191906A7A400528F7F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8E7E89211906A7A400528F7F /* TouchRooterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchRooterTests-Info.plist"; sourceTree = "<group>"; };
+		8E7E89211906A7A400528F7F /* BCOTouchRooterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BCOTouchRooterTests-Info.plist"; sourceTree = "<group>"; };
 		8E7E89231906A7A400528F7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E7E89251906A7A400528F7F /* TouchRooterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchRooterTests.m; sourceTree = "<group>"; };
+		8E7E89351906B63100528F7F /* BCOTouchRooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCOTouchRooter.h; sourceTree = "<group>"; };
+		8E7E89361906B63100528F7F /* BCOTouchRooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCOTouchRooter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +95,8 @@
 		8E7E88F81906A7A400528F7F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E7E88F71906A7A400528F7F /* TouchRooter.app */,
-				8E7E89181906A7A400528F7F /* TouchRooterTests.xctest */,
+				8E7E88F71906A7A400528F7F /* BCOTouchRooter.app */,
+				8E7E89181906A7A400528F7F /* BCOTouchRooterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +120,8 @@
 				8E7E890C1906A7A400528F7F /* Main.storyboard */,
 				8E7E890F1906A7A400528F7F /* BCOViewController.h */,
 				8E7E89101906A7A400528F7F /* BCOViewController.m */,
+				8E7E89351906B63100528F7F /* BCOTouchRooter.h */,
+				8E7E89361906B63100528F7F /* BCOTouchRooter.m */,
 				8E7E89121906A7A400528F7F /* Images.xcassets */,
 				8E7E89011906A7A400528F7F /* Supporting Files */,
 			);
@@ -126,10 +131,10 @@
 		8E7E89011906A7A400528F7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E7E89021906A7A400528F7F /* TouchRooter-Info.plist */,
+				8E7E89021906A7A400528F7F /* BCOTouchRooter-Info.plist */,
 				8E7E89031906A7A400528F7F /* InfoPlist.strings */,
 				8E7E89061906A7A400528F7F /* main.m */,
-				8E7E89081906A7A400528F7F /* TouchRooter-Prefix.pch */,
+				8E7E89081906A7A400528F7F /* BCOTouchRooter-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -146,7 +151,7 @@
 		8E7E89201906A7A400528F7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E7E89211906A7A400528F7F /* TouchRooterTests-Info.plist */,
+				8E7E89211906A7A400528F7F /* BCOTouchRooterTests-Info.plist */,
 				8E7E89221906A7A400528F7F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -155,9 +160,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8E7E88F61906A7A400528F7F /* TouchRooter */ = {
+		8E7E88F61906A7A400528F7F /* BCOTouchRooter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E7E89291906A7A400528F7F /* Build configuration list for PBXNativeTarget "TouchRooter" */;
+			buildConfigurationList = 8E7E89291906A7A400528F7F /* Build configuration list for PBXNativeTarget "BCOTouchRooter" */;
 			buildPhases = (
 				8E7E88F31906A7A400528F7F /* Sources */,
 				8E7E88F41906A7A400528F7F /* Frameworks */,
@@ -167,14 +172,14 @@
 			);
 			dependencies = (
 			);
-			name = TouchRooter;
+			name = BCOTouchRooter;
 			productName = TouchRooter;
-			productReference = 8E7E88F71906A7A400528F7F /* TouchRooter.app */;
+			productReference = 8E7E88F71906A7A400528F7F /* BCOTouchRooter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8E7E89171906A7A400528F7F /* TouchRooterTests */ = {
+		8E7E89171906A7A400528F7F /* BCOTouchRooterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E7E892C1906A7A400528F7F /* Build configuration list for PBXNativeTarget "TouchRooterTests" */;
+			buildConfigurationList = 8E7E892C1906A7A400528F7F /* Build configuration list for PBXNativeTarget "BCOTouchRooterTests" */;
 			buildPhases = (
 				8E7E89141906A7A400528F7F /* Sources */,
 				8E7E89151906A7A400528F7F /* Frameworks */,
@@ -185,9 +190,9 @@
 			dependencies = (
 				8E7E891E1906A7A400528F7F /* PBXTargetDependency */,
 			);
-			name = TouchRooterTests;
+			name = BCOTouchRooterTests;
 			productName = TouchRooterTests;
-			productReference = 8E7E89181906A7A400528F7F /* TouchRooterTests.xctest */;
+			productReference = 8E7E89181906A7A400528F7F /* BCOTouchRooterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8E7E88F21906A7A400528F7F /* Build configuration list for PBXProject "TouchRooter" */;
+			buildConfigurationList = 8E7E88F21906A7A400528F7F /* Build configuration list for PBXProject "BCOTouchRooter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -218,8 +223,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8E7E88F61906A7A400528F7F /* TouchRooter */,
-				8E7E89171906A7A400528F7F /* TouchRooterTests */,
+				8E7E88F61906A7A400528F7F /* BCOTouchRooter */,
+				8E7E89171906A7A400528F7F /* BCOTouchRooterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -251,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E7E89111906A7A400528F7F /* BCOViewController.m in Sources */,
+				8E7E89371906B63100528F7F /* BCOTouchRooter.m in Sources */,
 				8E7E89071906A7A400528F7F /* main.m in Sources */,
 				8E7E890B1906A7A400528F7F /* BCOAppDelegate.m in Sources */,
 			);
@@ -269,7 +275,7 @@
 /* Begin PBXTargetDependency section */
 		8E7E891E1906A7A400528F7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8E7E88F61906A7A400528F7F /* TouchRooter */;
+			target = 8E7E88F61906A7A400528F7F /* BCOTouchRooter */;
 			targetProxy = 8E7E891D1906A7A400528F7F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -378,9 +384,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TouchRooter/TouchRooter-Prefix.pch";
-				INFOPLIST_FILE = "TouchRooter/TouchRooter-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TouchRooter/BCOTouchRooter-Prefix.pch";
+				INFOPLIST_FILE = "TouchRooter/BCOTouchRooter-Info.plist";
+				PRODUCT_NAME = BCOTouchRooter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -391,9 +397,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TouchRooter/TouchRooter-Prefix.pch";
-				INFOPLIST_FILE = "TouchRooter/TouchRooter-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TouchRooter/BCOTouchRooter-Prefix.pch";
+				INFOPLIST_FILE = "TouchRooter/BCOTouchRooter-Info.plist";
+				PRODUCT_NAME = BCOTouchRooter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -413,8 +419,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "TouchRooterTests/TouchRooterTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "TouchRooterTests/BCOTouchRooterTests-Info.plist";
+				PRODUCT_NAME = BCOTouchRooterTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -431,8 +437,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TouchRooter/TouchRooter-Prefix.pch";
-				INFOPLIST_FILE = "TouchRooterTests/TouchRooterTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "TouchRooterTests/BCOTouchRooterTests-Info.plist";
+				PRODUCT_NAME = BCOTouchRooterTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -441,7 +447,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8E7E88F21906A7A400528F7F /* Build configuration list for PBXProject "TouchRooter" */ = {
+		8E7E88F21906A7A400528F7F /* Build configuration list for PBXProject "BCOTouchRooter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E7E89271906A7A400528F7F /* Debug */,
@@ -450,21 +456,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E7E89291906A7A400528F7F /* Build configuration list for PBXNativeTarget "TouchRooter" */ = {
+		8E7E89291906A7A400528F7F /* Build configuration list for PBXNativeTarget "BCOTouchRooter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E7E892A1906A7A400528F7F /* Debug */,
 				8E7E892B1906A7A400528F7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		8E7E892C1906A7A400528F7F /* Build configuration list for PBXNativeTarget "TouchRooterTests" */ = {
+		8E7E892C1906A7A400528F7F /* Build configuration list for PBXNativeTarget "BCOTouchRooterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E7E892D1906A7A400528F7F /* Debug */,
 				8E7E892E1906A7A400528F7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

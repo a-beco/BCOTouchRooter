@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8E7E88F61906A7A400528F7F"
                BuildableName = "TouchRooter.app"
-               BlueprintName = "TouchRooter"
-               ReferencedContainer = "container:TouchRooter.xcodeproj">
+               BlueprintName = "BCOTouchRooter"
+               ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8E7E89171906A7A400528F7F"
                BuildableName = "TouchRooterTests.xctest"
-               BlueprintName = "TouchRooterTests"
-               ReferencedContainer = "container:TouchRooter.xcodeproj">
+               BlueprintName = "BCOTouchRooterTests"
+               ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7E88F61906A7A400528F7F"
             BuildableName = "TouchRooter.app"
-            BlueprintName = "TouchRooter"
-            ReferencedContainer = "container:TouchRooter.xcodeproj">
+            BlueprintName = "BCOTouchRooter"
+            ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7E88F61906A7A400528F7F"
             BuildableName = "TouchRooter.app"
-            BlueprintName = "TouchRooter"
-            ReferencedContainer = "container:TouchRooter.xcodeproj">
+            BlueprintName = "BCOTouchRooter"
+            ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7E88F61906A7A400528F7F"
             BuildableName = "TouchRooter.app"
-            BlueprintName = "TouchRooter"
-            ReferencedContainer = "container:TouchRooter.xcodeproj">
+            BlueprintName = "BCOTouchRooter"
+            ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
