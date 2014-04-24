@@ -27,7 +27,7 @@
 // 通常のタッチイベントに対するフィルタを取得する。
 - (BCOTouchFilter *)defaultFilter;
 
-// 引数で指定したレシーバと紐づくBCOTouchFilterを取得する。
+// 引数で指定したレシーバと紐づくフィルタを取得する。
 - (BCOTouchFilter *)filterForReceiver:(id<BCOTouchReceiver>)receiver;
 
 @end
@@ -57,7 +57,7 @@ typedef NS_OPTIONS(NSUInteger, BCOTouchFilterBlockMask) {
 /**
  * BCOTouchRooterの通知/非通知の切り替えや
  * 通知条件の設定。BCOTouchRooterに追加したReceiverと１対１で紐づく。
- * initで生成せず、BCOTouchRooterの+touchFilterForReceiver:などを使うこと。
+ * initで生成せず、BCOTouchRooterの+filterForReceiver:などを使うこと。
  */
 @interface BCOTouchFilter : NSObject 
 
