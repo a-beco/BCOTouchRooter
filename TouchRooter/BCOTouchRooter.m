@@ -10,7 +10,79 @@
 #import <objc/runtime.h>
 
 
-// for method swizzling
+//====================================
+// BCOTouchRootingInfo (private class)
+//====================================
+@interface BCOTouchRootingInfo : NSObject 
+@property (nonatomic, strong) id<BCOTouchReceiver> receiver;
+@property (nonatomic, strong) BCOTouchFilter *filter;
+@end
+
+//====================================
+// BCOTouchRootingInfo (private class)
+//====================================
+@implementation BCOTouchRootingInfo
+@end
+
+
+//==========================
+// BCOTouchFilter
+//==========================
+@interface BCOTouchFilter ()
+
+// BCOTouchRooterでのみ使われる
+- (BOOL)shouldBlockTouch:(UITouch *)touch toObject:(id)object;
+
+@end
+
+//==========================
+// BCOTouchFilter
+//==========================
+@implementation BCOTouchFilter
+
+- (BOOL)shouldBlockTouch:(UITouch *)touch toObject:(id)object
+{
+    if (_blocked) {
+        return YES;
+    }
+    
+    UIView *view = nil;
+    if ([object isKindOfClass:[UIView class]]) {
+        view = (UIView *)object;
+    } else if ([object isKindOfClass:[UIViewController class]]) {
+        view = [(UIViewController *)object view];
+    }
+    
+    if (view && (_blockMask & BCOTouchFilterMaskOutOfViewBounds)) {
+        CGPoint touchPoint = [touch locationInView:view];
+        if (CGRectContainsPoint(view.bounds, touchPoint)) {
+            return YES;
+        }
+    }
+    
+    if (view && (_blockMask & BCOTouchFilterMaskHitView)) {
+        // 最初にタッチが起きたビューと同じインスタンスならブロック
+        if (view == touch.view) {
+            return YES;
+        }
+    }
+    
+    if (view && (_blockMask & BCOTouchFilterMaskNotHitView)) {
+        // 最初にタッチが起きたビューと同じインスタンスならブロック
+        if (view != touch.view) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+@end
+
+
+//==========================================
+// UIWindow category (for method swizzling)
+//==========================================
 @interface UIWindow (swizzling)
 
 - (void)sendEvent_receive:(UIEvent *)event;
@@ -18,21 +90,29 @@
 @end
 
 
+//==========================
+// BCOTouchRooter extention
+//==========================
 @interface BCOTouchRooter ()
 
-@property (nonatomic, strong) NSMutableArray *responderArray;
+@property (nonatomic, strong) NSMutableArray *rootingInfoArray;
+@property (nonatomic, strong) BCOTouchFilter *defaultFilter;
 
 @end
 
 static BCOTouchRooter *p_sharedInstance = nil;
 
+//==========================
+// BCOTouchRooter
+//==========================
 @implementation BCOTouchRooter
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        _responderArray = @[].mutableCopy;
+        _rootingInfoArray = @[].mutableCopy;
+        _defaultFilter = [[BCOTouchFilter alloc] init];
         
         // method swizzling
         [self p_processMethodSwizzlingFromClass:[UIWindow class]
@@ -54,20 +134,64 @@ static BCOTouchRooter *p_sharedInstance = nil;
 
 - (void)addReceiver:(id<BCOTouchReceiver>)receiver
 {
-    if ([_responderArray containsObject:receiver]) {
+    if ([self p_containsReceiver:receiver]) {
         return;
     }
-    [_responderArray addObject:receiver];
+    
+    BCOTouchRootingInfo *rootingInfo = [[BCOTouchRootingInfo alloc] init];
+    rootingInfo.receiver = receiver;
+    
+    BCOTouchFilter *touchFilter = [[BCOTouchFilter alloc] init];
+    rootingInfo.filter = touchFilter;
+    
+    [_rootingInfoArray addObject:rootingInfo];
 }
 
 - (void)removeReceiver:(id<BCOTouchReceiver>)receiver
 {
-    if ([_responderArray containsObject:receiver]) {
-        [_responderArray removeObject:receiver];
+    if ([self p_containsReceiver:receiver]) {
+        BCOTouchRootingInfo *rootingInfo = [self p_touchRootingInfoOfReceiver:receiver];
+        if (rootingInfo) {
+            [_rootingInfoArray removeObject:rootingInfo];
+        }
     }
 }
 
+- (BCOTouchFilter *)defaultFilter
+{
+    return _defaultFilter;
+}
+
+- (BCOTouchFilter *)filterForReceiver:(id<BCOTouchReceiver>)receiver
+{
+    BCOTouchRootingInfo *rootingInfo = [self p_touchRootingInfoOfReceiver:receiver];
+    if (rootingInfo) {
+        return rootingInfo.filter;
+    }
+    return nil;
+}
+
 #pragma mark - private
+
+- (BCOTouchRootingInfo *)p_touchRootingInfoOfReceiver:(id<BCOTouchReceiver>)receiver
+{
+    for (BCOTouchRootingInfo *rootingInfo in _rootingInfoArray) {
+        if (rootingInfo.receiver == receiver) {
+            return rootingInfo;
+        }
+    }
+    return nil;
+}
+
+- (BOOL)p_containsReceiver:(id<BCOTouchReceiver>)receiver
+{
+    for (BCOTouchRootingInfo *rootingInfo in _rootingInfoArray) {
+        if (rootingInfo.receiver == receiver) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 - (void)p_processMethodSwizzlingFromClass:(Class)fromClass
                                   fromSEL:(SEL)fromSEL
@@ -82,7 +206,9 @@ static BCOTouchRooter *p_sharedInstance = nil;
 @end
 
 
-// for method swizzling
+//==========================================
+// UIWindow category (for method swizzling)
+//==========================================
 @implementation UIWindow (swizzling)
 
 // UIWindowのsendEventをこのメソッドで置き換える。
@@ -90,7 +216,10 @@ static BCOTouchRooter *p_sharedInstance = nil;
 {
     // タッチイベントをレシーバに通知
     BCOTouchRooter *rooter = [BCOTouchRooter sharedRooter];
-    for (id<BCOTouchReceiver> resceiver in rooter.responderArray) {
+    for (BCOTouchRootingInfo *rootingInfo in rooter.rootingInfoArray) {
+        
+        id<BCOTouchReceiver> receiver = rootingInfo.receiver;
+        BCOTouchFilter *filter = rootingInfo.filter;
         
         // phaseごとにsetを分ける
         NSMutableSet *beganSet = [NSMutableSet setWithCapacity:0];
@@ -99,6 +228,12 @@ static BCOTouchRooter *p_sharedInstance = nil;
         NSMutableSet *cancelledSet = [NSMutableSet setWithCapacity:0];
         NSSet *allTouches = [event allTouches];
         for (UITouch *touch in allTouches) {
+            
+            // フィルタでブロック
+            if ([filter shouldBlockTouch:touch toObject:receiver]) {
+                continue;
+            }
+            
             switch (touch.phase) {
                 case UITouchPhaseBegan:
                     [beganSet addObject:touch];
@@ -117,21 +252,30 @@ static BCOTouchRooter *p_sharedInstance = nil;
             }
         }
         
-        if ([beganSet count] > 0) {
-            [resceiver didReceiveTouchesBegan:beganSet event:event];
+        if ([beganSet count] > 0
+            && [receiver respondsToSelector:@selector(didReceiveTouchesBegan:event:)]) {
+            [receiver didReceiveTouchesBegan:beganSet event:event];
         }
         
-        if ([movedSet count] > 0) {
-            [resceiver didReceiveTouchesMoved:movedSet.copy event:event];
+        if ([movedSet count] > 0
+            && [receiver respondsToSelector:@selector(didReceiveTouchesMoved:event:)]) {
+            [receiver didReceiveTouchesMoved:movedSet.copy event:event];
         }
         
-        if ([endedSet count] > 0) {
-            [resceiver didReceiveTouchesEnded:endedSet.copy event:event];
+        if ([endedSet count] > 0
+            && [receiver respondsToSelector:@selector(didReceiveTouchesEnded:event:)]) {
+            [receiver didReceiveTouchesEnded:endedSet.copy event:event];
         }
         
-        if ([cancelledSet count] > 0) {
-            [resceiver didReceiveTouchesCancelled:cancelledSet.copy event:event];
+        if ([cancelledSet count] > 0
+            && [receiver respondsToSelector:@selector(didReceiveTouchesCancelled:event:)]) {
+            [receiver didReceiveTouchesCancelled:cancelledSet.copy event:event];
         }
+    }
+    
+    // 通常のタッチイベントに対するフィルタでブロック
+    if (rooter.defaultFilter.blocked) {
+        return;
     }
     
     // 元々のsendEvent:の実装を呼ぶ
@@ -139,3 +283,5 @@ static BCOTouchRooter *p_sharedInstance = nil;
 }
 
 @end
+
+

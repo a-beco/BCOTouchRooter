@@ -22,6 +22,7 @@
 		8E7E89241906A7A400528F7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E7E89221906A7A400528F7F /* InfoPlist.strings */; };
 		8E7E89261906A7A400528F7F /* TouchRooterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E89251906A7A400528F7F /* TouchRooterTests.m */; };
 		8E7E89371906B63100528F7F /* BCOTouchRooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E89361906B63100528F7F /* BCOTouchRooter.m */; };
+		8EAD7ABC19097DA00098BD9A /* BCOTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD7ABB19097DA00098BD9A /* BCOTouchView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		8E7E89251906A7A400528F7F /* TouchRooterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchRooterTests.m; sourceTree = "<group>"; };
 		8E7E89351906B63100528F7F /* BCOTouchRooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCOTouchRooter.h; sourceTree = "<group>"; };
 		8E7E89361906B63100528F7F /* BCOTouchRooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCOTouchRooter.m; sourceTree = "<group>"; };
+		8EAD7ABA19097DA00098BD9A /* BCOTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCOTouchView.h; sourceTree = "<group>"; };
+		8EAD7ABB19097DA00098BD9A /* BCOTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCOTouchView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				8E7E890C1906A7A400528F7F /* Main.storyboard */,
 				8E7E890F1906A7A400528F7F /* BCOViewController.h */,
 				8E7E89101906A7A400528F7F /* BCOViewController.m */,
+				8EAD7ABA19097DA00098BD9A /* BCOTouchView.h */,
+				8EAD7ABB19097DA00098BD9A /* BCOTouchView.m */,
 				8E7E89351906B63100528F7F /* BCOTouchRooter.h */,
 				8E7E89361906B63100528F7F /* BCOTouchRooter.m */,
 				8E7E89121906A7A400528F7F /* Images.xcassets */,
@@ -257,6 +262,7 @@
 			files = (
 				8E7E89111906A7A400528F7F /* BCOViewController.m in Sources */,
 				8E7E89371906B63100528F7F /* BCOTouchRooter.m in Sources */,
+				8EAD7ABC19097DA00098BD9A /* BCOTouchView.m in Sources */,
 				8E7E89071906A7A400528F7F /* main.m in Sources */,
 				8E7E890B1906A7A400528F7F /* BCOAppDelegate.m in Sources */,
 			);

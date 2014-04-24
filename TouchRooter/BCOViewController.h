@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// デバッグ用ビューコントローラクラス。
 @interface BCOViewController : UIViewController
 
 @end

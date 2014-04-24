@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8E7E88F61906A7A400528F7F"
-               BuildableName = "TouchRooter.app"
+               BuildableName = "BCOTouchRooter.app"
                BlueprintName = "BCOTouchRooter"
                ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8E7E89171906A7A400528F7F"
-               BuildableName = "TouchRooterTests.xctest"
+               BuildableName = "BCOTouchRooterTests.xctest"
                BlueprintName = "BCOTouchRooterTests"
                ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7E88F61906A7A400528F7F"
-            BuildableName = "TouchRooter.app"
+            BuildableName = "BCOTouchRooter.app"
             BlueprintName = "BCOTouchRooter"
             ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7E88F61906A7A400528F7F"
-            BuildableName = "TouchRooter.app"
+            BuildableName = "BCOTouchRooter.app"
             BlueprintName = "BCOTouchRooter"
             ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7E88F61906A7A400528F7F"
-            BuildableName = "TouchRooter.app"
+            BuildableName = "BCOTouchRooter.app"
             BlueprintName = "BCOTouchRooter"
             ReferencedContainer = "container:BCOTouchRooter.xcodeproj">
          </BuildableReference>

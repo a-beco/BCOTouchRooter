@@ -1,19 +1,18 @@
 //
-//  BCOViewController.m
+//  BCOTouchView.m
 //  BCOTouchRooter
 //
-//  Created by 阿部耕平 on 2014/04/22.
+//  Created by 阿部耕平 on 2014/04/25.
 //  Copyright (c) 2014年 Kohei Abe. All rights reserved.
 //
 
-#import "BCOViewController.h"
+#import "BCOTouchView.h"
 #import "BCOTouchRooter.h"
 
-@interface BCOViewController () <BCOTouchReceiver>
-
+@interface BCOTouchView () <BCOTouchReceiver>
 @end
 
-@implementation BCOViewController
+@implementation BCOTouchView
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -21,51 +20,53 @@
     if (self) {
         BCOTouchRooter *rooter = [BCOTouchRooter sharedRooter];
         [rooter addReceiver:self];
-        [rooter defaultFilter].blocked = YES;
+        
+        BCOTouchFilter *filter = [rooter filterForReceiver:self];
+        filter.blockMask |= BCOTouchFilterMaskNotHitView;
     }
     return self;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"began");
+    NSLog(@"began view");
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"moved");
+    NSLog(@"moved view");
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"ended");
+    NSLog(@"ended view");
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"cancelled");
+    NSLog(@"cancelled view");
 }
 
 #pragma mark - BCOTouchReceiver
 
 - (void)didReceiveTouchesBegan:(NSSet *)touches event:(UIEvent *)event
 {
-    NSLog(@"began rooter");
+    NSLog(@"began view rooter");
 }
 
 - (void)didReceiveTouchesMoved:(NSSet *)touches event:(UIEvent *)event
 {
-    NSLog(@"moved rooter");
+    NSLog(@"moved view rooter");
 }
 
 - (void)didReceiveTouchesEnded:(NSSet *)touches event:(UIEvent *)event
 {
-    NSLog(@"ended rooter");
+    NSLog(@"ended view rooter");
 }
 
 - (void)didReceiveTouchesCancelled:(NSSet *)touches event:(UIEvent *)event
 {
-    NSLog(@"cancelled rooter");
+    NSLog(@"cancelled view rooter");
 }
 
 @end
