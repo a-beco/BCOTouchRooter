@@ -30,7 +30,8 @@
 
 @end
 
-
+// BCOTouchRooterに-addReceiver:した上で、このプロトコルを実装することで
+// タッチイベントの通知を受け取ることができます。
 @protocol BCOTouchReceiver <NSObject>
 
 @optional
