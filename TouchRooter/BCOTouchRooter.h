@@ -11,16 +11,26 @@
 @protocol BCOTouchReceiver;
 @class BCOTouchFilter;
 
-// addReceiver:で追加されたレシーバオブジェクトに対し、
-// 全てのタッチイベントを渡すクラス。
-// タッチされていないオブジェクトにもタッチを通知できる。
-// Note: 現状はスレッドセーフではありません。
+// タッチイベントをルーティングするクラス。
+//
+// addReceiver:で追加されたレシーバオブジェクトに対し、タッチイベントを渡す。
+// filterForReceiver:で取得できるフィルタオブジェクトにblockMaskで、
+// 通知するか否かの条件を設定できる。
+//
+// Note: スレッドセーフではありません。
 @interface BCOTouchRooter : NSObject
 
 + (BCOTouchRooter *)sharedRooter;
 
+// レシーバオブジェクトを通知リストに追加する。重複は無視。
 - (void)addReceiver:(id<BCOTouchReceiver>)receiver;
+
+// レシーバオブジェクトを通知リストから削除する。
 - (void)removeReceiver:(id<BCOTouchReceiver>)receiver;
+
+@end
+
+@interface BCOTouchRooter (BCOTouchRooterFiltering)
 
 // 通常のタッチイベントに対するフィルタを取得する。
 - (BCOTouchFilter *)defaultFilter;
@@ -42,13 +52,19 @@
 
 @end
 
-//「ブロックする条件」を指定する。条件に合致していればブロック。
-// BCOTouchFilterMaskOutOfViewBounds: ビューの矩形の中でなければブロック。ビューでなければ無視。
-// BCOTouchFilterMaskHitView: ヒットしたビューであればブロック。ビューでなければ無視。
+
+//「通知をブロックする条件」を指定する。条件に合致していれば通知しない。
+// BCOTouchFilterMaskOutOfViewBounds: ビューの矩形の中でなければブロック。UIView/UIViewController。
+// BCOTouchFilterMaskHitView: ヒットビューであればブロック。UIView/UIViewController。
+// BCOTouchFilterMaskNotHitView: ヒットビューでなければブロック。UIView/UIViewController。
+// BCOTouchFilterMaskHitViewIsNotSubview: ヒットビューが子孫のビューでなければブロック。UIView/UIViewController。
+// BCOTouchFilterMaskMultipleTouch: ２つ以上の通知が来たときは２つめ以降をブロック。
 typedef NS_OPTIONS(NSUInteger, BCOTouchFilterBlockMask) {
-    BCOTouchFilterMaskOutOfViewBounds      = 1 << 0,
-    BCOTouchFilterMaskHitView              = 1 << 1,
-    BCOTouchFilterMaskNotHitView           = 1 << 2,
+    BCOTouchFilterMaskOutOfViewBounds           = 1 << 0,
+    BCOTouchFilterMaskHitView                   = 1 << 1,
+    BCOTouchFilterMaskNotHitView                = 1 << 2,
+    BCOTouchFilterMaskHitViewIsNotSubview       = 1 << 3,
+    BCOTouchFilterMaskMultipleTouch             = 1 << 4,
 };
 
 
