@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2F00FC190D6D8D00768E8B /* BCOTouchRooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F00FB190D6D8D00768E8B /* BCOTouchRooter.m */; };
 		8E7E88FB1906A7A400528F7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7E88FA1906A7A400528F7F /* Foundation.framework */; };
 		8E7E88FD1906A7A400528F7F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7E88FC1906A7A400528F7F /* CoreGraphics.framework */; };
 		8E7E88FF1906A7A400528F7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7E88FE1906A7A400528F7F /* UIKit.framework */; };
@@ -21,7 +22,6 @@
 		8E7E891C1906A7A400528F7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7E88FE1906A7A400528F7F /* UIKit.framework */; };
 		8E7E89241906A7A400528F7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E7E89221906A7A400528F7F /* InfoPlist.strings */; };
 		8E7E89261906A7A400528F7F /* TouchRooterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E89251906A7A400528F7F /* TouchRooterTests.m */; };
-		8E7E89371906B63100528F7F /* BCOTouchRooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E89361906B63100528F7F /* BCOTouchRooter.m */; };
 		8EAD7ABC19097DA00098BD9A /* BCOTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD7ABB19097DA00098BD9A /* BCOTouchView.m */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E2F00FA190D6D8D00768E8B /* BCOTouchRooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCOTouchRooter.h; path = BCOTouchRooter/BCOTouchRooter.h; sourceTree = "<group>"; };
+		8E2F00FB190D6D8D00768E8B /* BCOTouchRooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BCOTouchRooter.m; path = BCOTouchRooter/BCOTouchRooter.m; sourceTree = "<group>"; };
 		8E7E88F71906A7A400528F7F /* BCOTouchRooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCOTouchRooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7E88FA1906A7A400528F7F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8E7E88FC1906A7A400528F7F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,8 +57,6 @@
 		8E7E89211906A7A400528F7F /* BCOTouchRooterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BCOTouchRooterTests-Info.plist"; sourceTree = "<group>"; };
 		8E7E89231906A7A400528F7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E7E89251906A7A400528F7F /* TouchRooterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchRooterTests.m; sourceTree = "<group>"; };
-		8E7E89351906B63100528F7F /* BCOTouchRooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCOTouchRooter.h; sourceTree = "<group>"; };
-		8E7E89361906B63100528F7F /* BCOTouchRooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCOTouchRooter.m; sourceTree = "<group>"; };
 		8EAD7ABA19097DA00098BD9A /* BCOTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCOTouchView.h; sourceTree = "<group>"; };
 		8EAD7ABB19097DA00098BD9A /* BCOTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCOTouchView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E2F00F9190D6D6300768E8B /* BCOTouchRooter */ = {
+			isa = PBXGroup;
+			children = (
+				8E2F00FA190D6D8D00768E8B /* BCOTouchRooter.h */,
+				8E2F00FB190D6D8D00768E8B /* BCOTouchRooter.m */,
+			);
+			name = BCOTouchRooter;
+			sourceTree = "<group>";
+		};
 		8E7E88EE1906A7A400528F7F = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +134,7 @@
 				8E7E89101906A7A400528F7F /* BCOViewController.m */,
 				8EAD7ABA19097DA00098BD9A /* BCOTouchView.h */,
 				8EAD7ABB19097DA00098BD9A /* BCOTouchView.m */,
-				8E7E89351906B63100528F7F /* BCOTouchRooter.h */,
-				8E7E89361906B63100528F7F /* BCOTouchRooter.m */,
+				8E2F00F9190D6D6300768E8B /* BCOTouchRooter */,
 				8E7E89121906A7A400528F7F /* Images.xcassets */,
 				8E7E89011906A7A400528F7F /* Supporting Files */,
 			);
@@ -261,10 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E7E89111906A7A400528F7F /* BCOViewController.m in Sources */,
-				8E7E89371906B63100528F7F /* BCOTouchRooter.m in Sources */,
 				8EAD7ABC19097DA00098BD9A /* BCOTouchView.m in Sources */,
 				8E7E89071906A7A400528F7F /* main.m in Sources */,
 				8E7E890B1906A7A400528F7F /* BCOAppDelegate.m in Sources */,
+				8E2F00FC190D6D8D00768E8B /* BCOTouchRooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
