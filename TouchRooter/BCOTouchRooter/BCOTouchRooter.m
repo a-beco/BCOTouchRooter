@@ -286,7 +286,6 @@ static BCOTouchObjectManager *p_sharedObjectManager = nil;
 @interface BCODefaultTouchFilter : BCOTouchFilter
 
 @property (nonatomic, strong) NSMutableArray *unblockedEvents;
-@property (nonatomic, strong) NSMutableArray *blockedTouchEndEvents;
 
 - (BOOL)shouldBlockEvent:(UIEvent *)event;
 
@@ -299,7 +298,6 @@ static BCOTouchObjectManager *p_sharedObjectManager = nil;
     self = [super init];
     if (self) {
         _unblockedEvents = @[].mutableCopy;
-        _blockedTouchEndEvents = @[].mutableCopy;
     }
     return self;
 }
@@ -311,9 +309,14 @@ static BCOTouchObjectManager *p_sharedObjectManager = nil;
     
     if (self.blocked) {
         for (UIEvent *aUnblockedEvent in _unblockedEvents) {
-            if (event == aUnblockedEvent
-                && ![_blockedTouchEndEvents containsObject:event]) {
-                [_blockedTouchEndEvents addObject:event];
+            if (event == aUnblockedEvent) {
+                // タッチ開始したものは必ずタッチ終了を呼ぶ.
+                for (UITouch *touch in [event allTouches]) {
+                    if (touch.phase == UITouchPhaseEnded
+                        || touch.phase == UITouchPhaseCancelled) {
+                        return NO;
+                    }
+                }
                 break;
             }
         }
@@ -330,16 +333,6 @@ static BCOTouchObjectManager *p_sharedObjectManager = nil;
     }
     
     return NO;
-}
-
-- (void)setBlocked:(BOOL)blocked
-{
-    [super setBlocked:blocked];
-    
-    for (UIEvent *event in _blockedTouchEndEvents) {
-        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-        [window performSelector:@selector(sendEvent:) withObject:event];
-    }
 }
 
 @end
