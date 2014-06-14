@@ -346,7 +346,7 @@ static BCOTouchObjectManager *p_sharedObjectManager = nil;
 // BCOTouchRooter内で使用。
 //====================================
 @interface BCOTouchRootingInfo : NSObject
-@property (nonatomic, strong) id<BCOTouchReceiver> receiver;
+@property (nonatomic, weak) id<BCOTouchReceiver> receiver;
 @property (nonatomic, strong) BCOTouchFilter *filter;
 @end
 
@@ -375,6 +375,8 @@ static BCOTouchObjectManager *p_sharedObjectManager = nil;
 
 @property (nonatomic, strong) NSMutableArray *rootingInfoArray;
 @property (nonatomic, strong) BCOTouchFilter *defaultFilter;
+
+- (void)p_removeObsoleteReceivers;
 
 @end
 
@@ -450,6 +452,20 @@ static BCOTouchRooter *p_sharedRooter = nil;
 
 #pragma mark - BCOTouchRooter private
 
+// 無効なレシーバを削除
+- (void)p_removeObsoleteReceivers
+{
+    NSMutableArray *obsoleteReceivers = @[].mutableCopy;
+    for (BCOTouchRootingInfo *rootingInfo in _rootingInfoArray) {
+        if (rootingInfo.receiver == nil)
+            [obsoleteReceivers addObject:rootingInfo];
+    }
+    
+    for (BCOTouchRootingInfo *aObsoleteReceiver in obsoleteReceivers) {
+        [_rootingInfoArray removeObject:aObsoleteReceiver];
+    }
+}
+
 - (BCOTouchRootingInfo *)p_touchRootingInfoOfReceiver:(id<BCOTouchReceiver>)receiver
 {
     for (BCOTouchRootingInfo *rootingInfo in _rootingInfoArray) {
@@ -496,6 +512,8 @@ static BCOTouchRooter *p_sharedRooter = nil;
 {
     // タッチイベントをレシーバに通知
     BCOTouchRooter *rooter = [BCOTouchRooter sharedRooter];
+    [rooter p_removeObsoleteReceivers];
+    
     for (BCOTouchRootingInfo *rootingInfo in rooter.rootingInfoArray) {
         
         id<BCOTouchReceiver> receiver = rootingInfo.receiver;
